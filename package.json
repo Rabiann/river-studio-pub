@@ -1,0 +1,74 @@
+{
+  "name": "river-studio",
+  "productName": "River Studio",
+  "version": "1.0.0",
+  "description": "River Studio - Streaming and Recording Software",
+  "main": "src/main/index.js",
+  "build": {
+    "directories": {
+      "output": "dist"
+    },
+    "extraResources": [
+      "src/renderer/public/logo.png"
+    ],
+    "linux": {
+      "icon": "src/renderer/public/logo.png"
+    },
+    "win": {
+      "icon": "src/renderer/public/logo.png"
+    },
+    "mac": {
+      "icon": "src/renderer/public/logo.png"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently -k \"cross-env BROWSER=none npm run dev --prefix src/renderer\" \"wait-on tcp:3000 && cross-env NODE_ENV=development electron .\"",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "dist": "electron-builder",
+    "test:main": "vitest run -c vitest.node.config.mjs",
+    "test:ui": "vitest --ui --coverage",
+    "test:coverage": "vitest run --coverage",
+    "test": "npm run test:main && npm test --prefix src/renderer -- --run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rabiann/river-studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rabiann/river-studio/issues"
+  },
+  "homepage": "https://github.com/Rabiann/river-studio#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^33.4.11",
+    "electron-builder": "^26.0.12",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.0.0",
+    "jsdom": "^27.4.0",
+    "prettier": "^3.7.4",
+    "vitest": "^4.0.16",
+    "wait-on": "^9.0.3"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "better-sqlite3": "^12.5.0",
+    "fix-path": "^5.0.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "vite": "^7.3.0"
+  }
+}

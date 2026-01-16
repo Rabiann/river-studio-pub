@@ -1,0 +1,5 @@
+{
+  "name": "River Studio",
+  "description": "A minimalistic streaming client frontend with scene management, audio mixing, and recording library features.",
+  "requestFramePermissions": []
+}
